@@ -1,0 +1,76 @@
+#
+# ImmortalWrt Configuration for NORCO EMB-3531 (Rockchip RK3399)
+# Target: rockchip/armv8
+# Device: norco_emb-3531
+#
+
+# ===================== Target Selection =====================
+CONFIG_MODULES=y
+CONFIG_HAVE_DOT_CONFIG=y
+CONFIG_HOST_OS_LINUX=y
+
+CONFIG_TARGET_rockchip=y
+CONFIG_TARGET_rockchip_armv8=y
+CONFIG_TARGET_MULTI_PROFILE=n
+
+# EMB-3531 device
+CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_norco_emb-3531=y
+
+# ===================== Partition Sizes =====================
+CONFIG_TARGET_KERNEL_PARTSIZE=32
+CONFIG_TARGET_ROOTFS_PARTSIZE=4096
+
+# ===================== Image Configuration =====================
+CONFIG_TARGET_IMAGES_GZIP=y
+CONFIG_TARGET_ROOTFS_TARGZ=y
+
+# ===================== Base System =====================
+CONFIG_PACKAGE_block-mount=y
+CONFIG_PACKAGE_ca-certificates=y
+CONFIG_PACKAGE_fstools=y
+CONFIG_PACKAGE_f2fs-tools=y
+CONFIG_PACKAGE_mkf2fs=y
+CONFIG_PACKAGE_e2fsprogs=y
+CONFIG_PACKAGE_partx-utils=y
+
+# ===================== LuCI Web Interface =====================
+CONFIG_PACKAGE_luci=y
+CONFIG_LUCI_LANG_zh_Hans=y
+
+# ===================== Network Utilities =====================
+CONFIG_PACKAGE_curl=y
+CONFIG_PACKAGE_ethtool-full=y
+CONFIG_PACKAGE_iperf3=y
+CONFIG_PACKAGE_tcpdump=y
+
+# ===================== SSH / Remote Access =====================
+CONFIG_PACKAGE_openssh-sftp-server=y
+
+# ===================== Kernel Modules =====================
+# USB networking
+CONFIG_PACKAGE_kmod-usb-net-cdc-ncm=y
+CONFIG_PACKAGE_kmod-usb-net-rndis=y
+CONFIG_PACKAGE_kmod-usb-net-rtl8152=y
+CONFIG_PACKAGE_kmod-usb-net-asix-ax88179=y
+
+# USB storage
+CONFIG_PACKAGE_kmod-usb-storage-extras=y
+CONFIG_PACKAGE_kmod-usb-storage-uas=y
+
+# Filesystem
+CONFIG_PACKAGE_kmod-fs-ntfs3=y
+
+# TUN/TAP for VPN
+CONFIG_PACKAGE_kmod-tun=y
+
+# ===================== System Tools =====================
+CONFIG_PACKAGE_htop=y
+CONFIG_PACKAGE_lsblk=y
+CONFIG_PACKAGE_usbutils=y
+CONFIG_PACKAGE_pciutils=y
+CONFIG_PACKAGE_lm-sensors=y
+
+# ===================== Build Settings =====================
+CONFIG_DEVEL=y
+CONFIG_CCACHE=y
+CONFIG_CCACHE_DIR="$(TOPDIR)/.ccache"
